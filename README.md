@@ -1,99 +1,161 @@
-# FlexCar Assignment React
+# FlexCar - Vehicle Search Application
 
-A modern React application built with TypeScript, Tailwind CSS, and comprehensive testing setup.
+## Tech Stack
 
-## Features
+- **React 19** with TypeScript
+- **Tailwind CSS** for responsive styling
+- **Formik & Yup** for form handling and validation
+- **Jest & React Testing Library** for comprehensive testing
+- **PostCSS & Autoprefixer** for CSS processing
 
-- **React 19** - Latest version with improved performance
-- **TypeScript** - Type-safe JavaScript development
-- **Tailwind CSS** - Utility-first CSS framework
-- **Jest & React Testing Library** - Comprehensive testing setup
-- **Responsive Design** - Mobile-first approach
-- **Modern Tooling** - ESLint, Prettier, and more
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd flexcar
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm start
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Running Tests
+
+Run the test suite:
+
+```bash
+npm test
+```
+
+Run tests with coverage:
+
+```bash
+npm test -- --coverage
+```
+
+## Project Structure
+
+```
+src/
+├── components/                    # Reusable UI components
+│   ├── __tests__/                # Component unit tests
+│   │   ├── Button.test.tsx
+│   │   ├── Card.test.tsx
+│   │   ├── FilterPanel.test.tsx
+│   │   ├── SearchForm.test.tsx
+│   │   └── VehicleCard.test.tsx
+│   ├── Button.tsx                # Custom button component
+│   ├── Card.tsx                  # Generic card component
+│   ├── CollapsibleSection.tsx    # Collapsible UI sections
+│   ├── ErrorMessage.tsx          # Error display component
+│   ├── FilterPanel.tsx           # Desktop filtering interface
+│   ├── MobileFilterBar.tsx       # Mobile filter trigger bar
+│   ├── MobileFilterModal.tsx     # Mobile filter modal
+│   ├── SearchForm.tsx            # ZIP code search form
+│   ├── SortDropdown.tsx          # Sorting controls
+│   ├── VehicleCard.tsx           # Individual vehicle display
+│   ├── VehicleDetailsModal.tsx   # Vehicle detail modal
+│   └── VehicleGrid.tsx           # Vehicle grid layout
+├── data/                         # Mock data and utilities
+│   └── vehicles.ts               # Vehicle data and helper functions
+├── types/                        # TypeScript type definitions
+│   └── vehicle.ts                # Vehicle and filter interfaces
+├── utils/                        # Utility functions
+│   ├── __tests__/                # Utility function tests
+│   │   └── vehicleUtils.test.ts
+│   └── vehicleUtils.ts           # Filtering and sorting logic
+├── __tests__/                    # Application-level tests
+│   └── App.test.tsx
+├── App.tsx                       # Main application component
+├── index.tsx                     # Application entry point
+└── index.css                     # Global styles
+```
+
+## Responsive Design
+
+The application follows a mobile-first approach with dedicated components for different screen sizes:
+
+- **Mobile**: < 640px (sm) - Uses MobileFilterBar and MobileFilterModal
+- **Tablet**: 640px - 1024px (md-lg) - Responsive grid layout
+- **Desktop**: > 1024px (lg+) - Full sidebar with FilterPanel
+
+## Testing Strategy
+
+- **Unit Tests**: Individual component and utility function testing with Jest
+- **Integration Tests**: Component interaction testing with React Testing Library
+- **Coverage Reports**: Comprehensive test coverage with detailed reports
+- **Mock Data**: Realistic vehicle data for consistent testing
+
+## Available Scripts
+
+- `npm start` - Runs the app in development mode at [http://localhost:3000](http://localhost:3000)
+- `npm test` - Launches the test runner in interactive watch mode
+- `npm test -- --coverage` - Runs tests with coverage report
+- `npm run build` - Builds the app for production to the `build` folder
 
 ## Getting Started
 
-### Prerequisites
+1. **Clone and Install**:
 
-- Node.js (version 14 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone or download this project
-2. Install dependencies:
    ```bash
+   git clone <repository-url>
+   cd flexcar
    npm install
    ```
 
-### Available Scripts
-
-- `npm start` - Runs the app in development mode
-- `npm test` - Launches the test runner
-- `npm run build` - Builds the app for production
-- `npm run eject` - Ejects from Create React App (one-way operation)
-
-### Development
-
-1. Start the development server:
+2. **Start Development**:
 
    ```bash
    npm start
    ```
 
-2. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
+3. **Run Tests**:
 
-3. Run tests:
    ```bash
    npm test
    ```
 
-## 📁 Project Structure
+4. **Build for Production**:
+   ```bash
+   npm run build
+   ```
 
-```
-src/
-├── components/         # Reusable UI components
-├── App.tsx             # Main application component
-├── App.test.tsx        # App component tests
-├── index.tsx           # Application entry point
-├── index.css           # Global styles with Tailwind
-└── setupTests.ts       # Test configuration
-```
+## Available ZIP Codes
 
-## Tailwind CSS
+The application includes mock vehicle data distributed across the following ZIP codes:
 
-This project uses Tailwind CSS for styling. The configuration is set up in `tailwind.config.js` and includes:
+- **10001** (New York, NY): 15 vehicles
+- **90210** (Beverly Hills, CA): 8 vehicles
+- **60601** (Chicago, IL): 8 vehicles
+- **33101** (Miami, FL): 4 vehicles
+- **75201** (Dallas, TX): 4 vehicles
+- **98101** (Seattle, WA): 4 vehicles
+- **02101** (Boston, MA): 4 vehicles
+- **30309** (Atlanta, GA): 4 vehicles
 
-- Responsive design utilities
-- Custom color palette
-- Component-based styling
-- Utility-first approach
+**Total: 50 vehicles**
 
-## Testing
+To test the application, enter any of these ZIP codes in the search form, or leave the field empty to see all vehicles.
 
-The project includes comprehensive testing setup:
+## Test Coverage
 
-- **Jest** - JavaScript testing framework
-- **React Testing Library** - React component testing utilities
-- **@testing-library/jest-dom** - Custom Jest matchers
+The project includes comprehensive test coverage for:
 
-Example test:
+- All React components with user interaction testing
+- Utility functions with edge case coverage
+- Form validation and error handling
+- Responsive behavior and accessibility features
 
-```typescript
-import { render, screen } from '@testing-library/react';
-import { Button } from './components/Button';
-
-test('renders button with text', () => {
-  render(<Button>Click me</Button>);
-  expect(screen.getByText('Click me')).toBeInTheDocument();
-});
-```
-
-## Responsive Design
-
-The application is built with a mobile-first approach using Tailwind CSS responsive utilities:
-
-- `sm:` - Small screens (640px+)
-- `md:` - Medium screens (768px+)
-- `lg:` - Large screens (1024px+)
-- `xl:` - Extra large screens (1280px+)
+Run `npm test -- --coverage` to view detailed coverage reports.

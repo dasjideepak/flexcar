@@ -4,6 +4,7 @@ interface ButtonProps {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
   disabled?: boolean;
   className?: string;
@@ -13,6 +14,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
   size = 'md',
+  type = 'button',
   onClick,
   disabled = false,
   className = '',
@@ -22,10 +24,10 @@ export const Button: React.FC<ButtonProps> = ({
 
   const variantClasses = {
     primary:
-      'bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500',
+      'bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500',
     secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
     outline:
-      'border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white focus:ring-indigo-500',
+      'border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white focus:ring-primary-500',
   };
 
   const sizeClasses = {
@@ -37,7 +39,12 @@ export const Button: React.FC<ButtonProps> = ({
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
   return (
-    <button className={classes} onClick={onClick} disabled={disabled}>
+    <button
+      type={type}
+      className={classes}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
