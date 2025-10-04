@@ -105,33 +105,6 @@ The application follows a mobile-first approach with dedicated components for di
 - `npm test -- --coverage` - Runs tests with coverage report
 - `npm run build` - Builds the app for production to the `build` folder
 
-## Getting Started
-
-1. **Clone and Install**:
-
-   ```bash
-   git clone <repository-url>
-   cd flexcar
-   npm install
-   ```
-
-2. **Start Development**:
-
-   ```bash
-   npm start
-   ```
-
-3. **Run Tests**:
-
-   ```bash
-   npm test
-   ```
-
-4. **Build for Production**:
-   ```bash
-   npm run build
-   ```
-
 ## Available ZIP Codes
 
 The application includes mock vehicle data distributed across the following ZIP codes:
