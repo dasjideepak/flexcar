@@ -94,9 +94,8 @@ function App() {
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <img
-            src="/flexcar-logo.webp"
+            src={require('./assets/flexcar-logo.webp')}
             alt="FlexCar"
-            srcSet="/flexcar-logo.webp"
             className="h-12"
           />
         </div>
